@@ -1,0 +1,143 @@
+
+POST http://localhost:4000/userapi/user
+Content-Type: application/json
+
+{
+    "name": "anoosh",
+    "role": "writer",
+    "gmail": "b@gmail.com",
+    "password": "123",
+    "addToWhislist": []
+}
+
+###
+GET  http://localhost:4000/userapi/users
+
+
+###login
+POST http://localhost:4000/userapi/login
+Content-Type: application/json
+
+{
+    "name": "anoosh",
+    "role": "writer",
+    "gmail": "b@gmail.com",
+    "password": "123",
+    "addToWhislist": []
+}
+
+###
+
+PUT  http://localhost:4000/userapi/userupdate
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2MzM2MzUzLCJleHAiOjE3NjYzOTAzNTN9.csOoVtrzB7M1HUmiXu4ilNIqc4QDleFi2Tton5rFm5w
+Content-Type: application/json
+
+{
+    "name": "anooshking",
+    "role": "writer",
+    "gmail": "b@gmail.com",
+    "password": "123",
+    "addToWhislist": []
+}
+
+###user comment after creating the blogs collection do it
+PUT  http://localhost:4000/userapi/usercomments/694916b4eed5153b9c6d91ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk5NTc1LCJleHAiOjE3NjY0NTM1NzV9.5_GX1M274G0Yjhd6Zc_4ckQW12nqGV9l7cJZL-zZJ-U
+Content-Type: application/json
+
+{
+    "author":"anooshking",
+    "photo":"",
+    "comment":"hello world"
+}
+
+
+###posting blog
+POST  http://localhost:4000/writerapi/postblog
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+Content-Type: application/json
+
+{
+    "author": "anoosh",
+    "authorId": "69490945e8f4c41489e7fd92",
+    "role": "writer",
+    "title":"about world",
+    "description":"hello world"
+    
+}
+
+###update blog
+
+PUT  http://localhost:4000/writerapi/updateblog/694916b4eed5153b9c6d91ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+Content-Type: application/json
+
+{
+    "author": "anoosh",
+    "authorId": "69490945e8f4c41489e7fd92",
+    "role": "writer",
+    "title":"about world one",
+    "description":"hello world guys"
+    
+}
+
+###get blogs of specific writer
+GET http://localhost:4000/writerapi/writerblogs/69490945e8f4c41489e7fd92
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+
+
+###soft delete blog
+PUT  http://localhost:4000/writerapi/hideblog/694916b4eed5153b9c6d91ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+Content-Type: application/json
+
+{
+    "author": "anoosh",
+    "authorId": "69490945e8f4c41489e7fd92",
+    "role": "writer",
+    "title":"about world one",
+    "description":"hello world guys",
+    "isDelete":false
+    
+}
+
+###get all blogs
+GET http://localhost:4000/userapi/totalblogs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+
+
+###update likes 
+PUT  http://localhost:4000/userapi/updatelike/694916b4eed5153b9c6d91ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+Content-Type: application/json
+
+{
+    "likesCount":1,
+    "isLiked":true
+    
+}
+
+
+###add to wishlist
+POST http://localhost:4000/userapi/addtowishlist/694916b4eed5153b9c6d91ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+Content-Type: application/json
+
+{
+    "id": "69490945e8f4c41489e7fd92" 
+}
+
+###remove from wishlist
+
+PUT  http://localhost:4000/userapi/removefromwishlist/694916b4eed5153b9c6d91ef
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw
+Content-Type: application/json
+
+{
+    "id": "69490945e8f4c41489e7fd92"
+}
+
+###get addtowishlist blogs
+
+GET http://localhost:4000/userapi/getaddtowishlist/69490945e8f4c41489e7fd92
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYW5vb3NoIiwiaWF0IjoxNzY2Mzk3NDY4LCJleHAiOjE3NjY0NTE0Njh9.MJ01PH7jWVkOzygXQEcWHARcHLGUWWqUo3MARL8JIpw

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Auth.css';
-import axios from 'axios';
+import api from '../../utils/api';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -43,7 +43,7 @@ function Register() {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:4000/userapi/user', formData);
+      const res = await api.post('/userapi/user', formData);
       
       if (res.data.message === 'user already exists') {
         setError('User with this email already exists');

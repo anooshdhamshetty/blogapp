@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/LoginContext';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../utils/api';
 import './Auth.css';
 
 function Login() {
@@ -38,7 +38,7 @@ function Login() {
     setLoading(true);
     
     try {
-      const res = await axios.post('http://localhost:4000/userapi/login', formData);
+      const res = await api.post('/userapi/login', formData);
       
       if (res.data.message === 'Invalid username' || res.data.message === 'Invalid password') {
         setError(res.data.message);

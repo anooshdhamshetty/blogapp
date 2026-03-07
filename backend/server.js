@@ -8,8 +8,15 @@ const cors = require("cors");
 const port_no = process.env.PORT_NO || 4000;
 const mongourl = process.env.MONGO_URL;
 
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "http://localhost:5174", 
+  "http://localhost:3000",
+  process.env.FRONTEND_URL // Add your Vercel URL here
+].filter(Boolean); // Remove undefined values
+
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+  origin: allowedOrigins,
   credentials: true
 }));
 

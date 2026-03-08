@@ -12,7 +12,7 @@ const allowedOrigins = [
   "http://localhost:5173", 
   "http://localhost:5174", 
   "http://localhost:3000",
-  "https://blogapp-sigma-indol.vercel.app/" // Add your Vercel URL here
+  "https://blogapp-sigma-indol.vercel.app" // Add your Vercel URL here
 ].filter(Boolean); // Remove undefined values
 
 app.use(cors({
